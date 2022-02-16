@@ -4,7 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 var ball, balloptions;
- var rect1, rect2, rect3;
+var rect1, rect2, rect3, rect4, rect5;
 
 function preload()
 {
@@ -24,9 +24,11 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-   rect1 = new Ground(140,600,50,1500);
-   rect2 = new Ground(650,525,100,10); 
-   rect3 = new Ground(550,525,100,10);
+   rect1 = new Ground(140,600,50,2000);
+   rect2 = new Ground(650,525,100,20); 
+   rect3 = new Ground(550,525,100,20);
+   rect4 = new Ground(800,300,2000,50);
+   rect5 = new Ground(0,300,2000,50);
    ball = Bodies.circle(200,200,20, balloptions);
 	 World.add(world, ball);
 
@@ -43,15 +45,17 @@ function draw() {
   rect1.show();
   rect2.show();
   rect3.show();
+  rect4.show();
+  rect5.show();
   circle(ball.position.x, ball.position.y, 20);
   drawSprites();
  //console.log(mouseX, mouseY);
 }
 function keyPressed(){
 
-  if(keyDown("w")){
+  if(keyCode == UP_ARROW){
 
-    Matter.Body.applyForce(ball,{x:0,y:0},{x:0.05, y:-0.09});
+    Matter.Body.applyForce(ball,{x:0,y:0},{x:0.03, y:-0.04});
     console.log('ja');
     }
 }
